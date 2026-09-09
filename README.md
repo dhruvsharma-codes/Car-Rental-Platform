@@ -18,7 +18,6 @@ The platform allows users to browse rental cars, view detailed vehicle informati
 🔗 Dynamic routing with React Router
 🗄️ MySQL database with Sequelize
 
-
 🛠️ Tech Stack
 Frontend
 React
@@ -39,63 +38,60 @@ Helmet
 CORS
 dotenv
 
-
 📁 Project Structure
 car-rental-platform/
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── ...
-│   ├── .env
-│   └── package.json
+│ ├── src/
+│ │ ├── assets/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ └── ...
+│ ├── .env
+│ └── package.json
 │
 ├── backend/
-│   ├── config/
-│   │   ├── config.json
-│   │   └── stripe.js
-│   ├── controllers/
-│   │   └── bookingController.js
-│   ├── models/
-│   │   ├── index.js
-│   │   ├── Car.js
-│   │   └── Booking.js
-│   ├── routes/
-│   │   └── bookingRoutes.js
-│   ├── .env
-│   ├── app.js
-│   └── seedCars.js
+│ ├── config/
+│ │ ├── config.json
+│ │ └── stripe.js
+│ ├── controllers/
+│ │ └── bookingController.js
+│ ├── models/
+│ │ ├── index.js
+│ │ ├── Car.js
+│ │ └── Booking.js
+│ ├── routes/
+│ │ └── bookingRoutes.js
+│ ├── .env
+│ ├── app.js
+│ └── seedCars.js
 │
 └── README.md
-
 
 💳 Payment Flow
 The application uses Stripe PaymentIntents for processing payments.
 
 Car Details
-     ↓
+↓
 Booking Page
-     ↓
+↓
 Create Booking
-     ↓
+↓
 Create Stripe PaymentIntent
-     ↓
+↓
 Payment Page
-     ↓
+↓
 Enter Card Details
-     ↓
+↓
 Stripe PaymentElement
-     ↓
+↓
 Confirm Payment
-     ↓
+↓
 Backend Verifies PaymentIntent
-     ↓
+↓
 Booking Confirmed
-     ↓
+↓
 Booking Success
-
 
 🔗 Frontend Routes
 
@@ -108,7 +104,6 @@ Booking Success
 | `/booking/:id`       | Booking page         |
 | `/payment/:id`       | Stripe payment page  |
 | `/booking-success`   | Booking confirmation |
-
 
 🔮 Future Improvements
 User authentication
