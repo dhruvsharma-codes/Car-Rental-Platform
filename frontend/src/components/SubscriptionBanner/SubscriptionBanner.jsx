@@ -1,24 +1,49 @@
-import subscriptionCar from "../../assets/subCar.png"
+import subscriptionCar from "../../assets/subCar.png";
+
 const SubscriptionBanner = () => {
   return (
-    <section className="w-full bg-white  py-15">
-      <div className="min-h-103 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-[20px] py-14 bg-[#5937E0]">
-<div className="flex gap-24">
-    <div className="max-w-189 px-12">
-<h4 className="text-[50px] mb-10 text-white max-w-152 font-bold font-secondary leading-15">Enjoy every mile with adorable companionship.</h4>
-<div className="max-w-137 flex flex-col gap-9">
-    <p className="text-white/90">Amet cras hac orci lacus. Faucibus ipsum arcu lectus nibh sapien bibendum ullamcorper in. Diam tincidunt tincidunt erat</p>
-    <div className="max-w-116 justify-center text-[16px] font-semibold items-center flex py-2 bg-white px-4 rounded-[20px]">
-    <input className=" outline-none w-full " placeholder="City" type="text" />
-    <button className="px-10 bg-[#FF9E0C] rounded-xl text-white py-3">Search</button>
-    </div>
-</div>
-    </div>
-    <img className="w-92" src={subscriptionCar} alt="subscriptioncar" />
-</div>
+    <section className="w-full bg-white py-10 sm:py-12 lg:py-15 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl rounded-[20px] bg-[#5937E0] px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+          {/* Left Content */}
+          <div className="w-full max-w-175 text-center lg:text-left">
+            <h4 className="mx-auto mb-8 max-w-155 font-secondary text-[34px] font-bold leading-tight text-white sm:text-[42px] lg:mx-0 lg:text-[50px]">
+              Enjoy every mile with adorable companionship.
+            </h4>
+
+            <div className="mx-auto flex w-full max-w-138 flex-col gap-7 lg:mx-0">
+              <p className="text-[15px] leading-6 text-white/90 sm:text-[16px]">
+                Amet cras hac orci lacus. Faucibus ipsum arcu lectus nibh sapien
+                bibendum ullamcorper in. Diam tincidunt tincidunt erat
+              </p>
+
+              {/* Search */}
+              <div className="flex w-full items-center gap-2 rounded-[20px] bg-white p-2">
+                <input
+                  className="min-w-0 flex-1 bg-transparent px-3 text-[16px] outline-none"
+                  placeholder="City"
+                  type="text"
+                />
+
+                <button className="shrink-0 rounded-xl bg-[#FF9E0C] px-6 py-3 text-[15px] font-semibold text-white sm:px-8 sm:text-[16px]">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Car Image */}
+          <div className="flex w-full justify-center lg:w-auto">
+            <img
+              className="h-auto w-60 sm:w-75 lg:w-92"
+              src={subscriptionCar}
+              alt="Subscription car"
+            />
+          </div>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SubscriptionBanner
+export default SubscriptionBanner;
