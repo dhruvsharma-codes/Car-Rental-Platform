@@ -25,7 +25,7 @@ const InfoBlock = () => {
   ];
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-wrap items-center justify-between py-13">
+      <div className="flex flex-wrap items-center lg:justify-between md:justify-center md:gap-6 sm:justify-center gap-10  py-13">
         {info.map((details) => (
           <div key={details.id}>
             <div className="flex flex-col gap-3 justify-center items-center">

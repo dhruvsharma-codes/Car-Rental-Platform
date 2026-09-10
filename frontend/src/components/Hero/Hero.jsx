@@ -13,7 +13,7 @@ const Hero = () => {
   };
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#5937E0] relative overflow-hidden rounded-3xl min-h-145 flex items-center justify-between px-10">
+      <div className="bg-[#5937E0]  relative overflow-hidden rounded-3xl min-h-145 flex items-center justify-between px-10">
         {/* background-image */}
         <img
           src={hero_Car}

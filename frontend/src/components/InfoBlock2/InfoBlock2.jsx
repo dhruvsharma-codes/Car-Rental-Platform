@@ -28,7 +28,7 @@ const InfoBlock2 = () => {
   ];
   return (
     <section className=" w-full">
-      <div className=" max-w-7xl mx-auto  px-4 sm:px-6 lg:px-6 flex items-center gap-27.5 min-h-157 ">
+      <div className=" max-w-7xl mx-auto  px-4 sm:px-6 lg:px-6 flex   items-center gap-27.5 min-h-157 ">
         {/* left image */}
         <img src={info_img} alt="info-image" className=" h-130 ml-20" />
 

@@ -34,7 +34,7 @@ const Footer = () => {
               <div>
                 <span className="text-[16px] font-normal">Address</span>
                 <p className="text-[16px] font-semibold font-secondary">
-                  Oxford Ave, Cary, NC 27511
+                  Munda Mazra, Yamuna Nagar, Haryana, 135001
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@ const Footer = () => {
               <div>
                 <span className="text-[16px] font-normal">Email</span>
                 <p className="text-[16px] font-semibold font-secondary">
-                  nwiger@yahoo.com
+                  dhruvsharma8363@gmail.com
                 </p>
               </div>
             </div>
@@ -58,7 +58,7 @@ const Footer = () => {
               <div>
                 <span className="text-[16px] font-normal">Phone</span>
                 <p className="text-[16px] font-semibold font-secondary">
-                  +537 547-6401
+                  +91 8053103060
                 </p>
               </div>
             </div>
