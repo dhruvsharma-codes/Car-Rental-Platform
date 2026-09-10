@@ -14,7 +14,7 @@ const Navbar = () => {
     <header className=" w-full sticky top-0 z-50 backdrop-blur-lg bg-white/60">
       <nav className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
         {/* logo */}
-        <Link to={"/"} className="flex items-center gap-3">
+        <Link to={"/"} className=" outline-none flex items-center gap-3">
           <img src={car} alt="car" className="w-8 h-8 object-contain" />
           <h1 className="font-bold text-[16px]">Car Rental</h1>
         </Link>
