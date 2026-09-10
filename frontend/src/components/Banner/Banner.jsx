@@ -29,39 +29,39 @@ const Banner = () => {
   ];
   return (
     <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[60px] min-h-[486px]">
-        <div className=" relative overflow-hidden bg-[#5937E0] rounded-[20px] px-[60px] py-[80px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 min-h-121.5">
+        <div className=" relative overflow-hidden bg-[#5937E0] rounded-[20px] px-15 py-20">
           <img
             src={banner}
-            className="absolute scale-95 z-0 bottom-[-20px] blur-md left-70 opacity-50 object-contain "
+            className="absolute scale-95 z-0 -bottom-5 blur-md left-70 opacity-50 object-contain "
             alt="carsedan"
           />
           {/* text */}
-          <div className="flex relative z-20 flex-col items-center gap-[10px] text-center text-white justify-center">
+          <div className="flex relative z-20 flex-col items-center gap-2.5 text-center text-white justify-center">
             <h3 className="text-[50px] font-bold font-secondary">
               Facts In Numbers
             </h3>
-            <p className=" max-w-[700px]  text-[16px] font-secondary font-normal">
+            <p className=" max-w-175  text-[16px] font-secondary font-normal">
               Amet crac hec orchi lacus. faucibus ipsum arcu lectus nibh sapien
               bibendum ullamcorperin. Diam tincidunt tincidunt erat at semper
               fermentum.
             </p>
           </div>
           {/* target */}
-          <div className=" relative z-20 flex gap-[64px] justify-center mt-[80px]">
+          <div className=" relative z-20 flex gap-16 justify-center mt-20">
             {info.map((item) => (
               <div
-                className="bg-white p-[16px] rounded-[20px] flex gap-[16px] w-[240px]"
+                className="bg-white p-4 rounded-[20px] flex gap-4 w-60"
                 key={item.id}
               >
-                <div className="rounded-[12px] bg-[#FF9E0C] w-[72px] h-[68px] flex items-center justify-center ">
+                <div className="rounded-xl bg-[#FF9E0C] w-18 h-17 flex items-center justify-center ">
                   {item.icon}
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className="text-[24px] font-bold font-secondary">
                     {item.target}
                   </span>
-                  <span className="text-[16px] font-semibold bg-[#00000] opacity-[60%]">
+                  <span className="text-[16px] font-semibold bg-[#00000] opacity-60">
                     {item.type}
                   </span>
                 </div>
