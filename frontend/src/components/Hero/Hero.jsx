@@ -43,7 +43,7 @@ const Hero = () => {
             Book your car
           </h2>
 
-          <form onClick={handleSubmit} className="flex flex-col gap-4">
+          <form className="flex flex-col gap-4">
             {/* Car type */}
             <select value={carType} onChange={(e)=>setCarType(e.target.value)} className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
               <option>Car type</option>
@@ -86,7 +86,7 @@ const Hero = () => {
             />
 
             {/* Button */}
-            <button type="submit" className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-md text-[16px] font-semibold mt-2">
+            <button  onClick={handleSubmit} type="submit" className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-md text-[16px] font-semibold mt-2">
               Book now
             </button>
           </form>
