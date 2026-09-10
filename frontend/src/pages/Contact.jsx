@@ -5,12 +5,20 @@ import news1 from "../assets/news1.png";
 import news2 from "../assets/news2.png";
 import news3 from "../assets/news3.png";
 import Blogs from "../components/Blogs/Blogs";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 const Contact = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
   const location = useLocation();
-
+  const navigate = useNavigate();
+  const [carType, setCarType] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!carType) {
+      return;
+    }
+    navigate(`/vehicles?type=${carType}`);
+  };
   useEffect(() => {
     if (location.hash === "#blog") {
       document.getElementById("blog")?.scrollIntoView({
@@ -73,7 +81,11 @@ const Contact = () => {
 
             <form className="flex flex-col gap-6 w-full mt-8">
               {/* Car type */}
-              <select className="w-full bg-[#694BE3] text-white/80 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+              <select
+                value={carType}
+                onChange={(e) => setCarType(e.target.value)}
+                className="w-full bg-[#694BE3] text-white/80 leading-5 rounded-md px-3 py-2 text-[16px] outline-none"
+              >
                 <option>Car type</option>
                 <option>Sedan</option>
                 <option>SUV</option>
@@ -115,7 +127,10 @@ const Contact = () => {
               />
 
               {/* Button */}
-              <button className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-xl text-[16px] font-semibold mt-2">
+              <button
+                onClick={handleSubmit}
+                className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-xl text-[16px] font-semibold mt-2"
+              >
                 Book now
               </button>
             </form>

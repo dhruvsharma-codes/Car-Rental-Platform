@@ -4,7 +4,7 @@ import g1593 from "../../assets/g1593.png"
 import { Link } from "react-router-dom"
 const Card = ({id,image,name,price,type,transmission,seats,feature}) => {
   return (
-    <Link to={`/details/${id}`} className="p-6 shadow-md bg-[#FAFAFA] rounded-[20px]">
+    <Link to={`/details/${id}`} className="p-6 shadow-md hover:scale-105 transition-transform duration-500 bg-[#FAFAFA] rounded-[20px]">
         <div>
             <img className="h-50 object-cover w-full" src={image} alt={id} />
             <div className="mt-4 flex flex-col gap-5">
