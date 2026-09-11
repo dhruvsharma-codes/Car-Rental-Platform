@@ -30,7 +30,11 @@ const InfoBlock2 = () => {
     <section className=" w-full">
       <div className=" max-w-7xl mx-auto w-full flex-col px-4 sm:px-6 lg:flex-row lg:gap-20 py-16 lg:px-8 lg:py-24 flex items-center gap-8 min-h-157 ">
         {/* left image */}
-        <img src={info_img} alt="info-image" className=" h-130 lg:ml-20 md:mx-auto" />
+        <img
+          src={info_img}
+          alt="info-image"
+          className=" h-130 lg:ml-20 md:mx-auto"
+        />
 
         {/* right list */}
         <div className="flex flex-col gap-7">

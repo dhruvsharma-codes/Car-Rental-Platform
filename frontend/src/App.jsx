@@ -7,10 +7,6 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Booking from "./pages/Booking";
 import BookingSuccess from "./pages/BookingSuccess";
-// import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
-// import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
-// import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -22,27 +18,9 @@ const App = () => {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/booking/:id" element={<Booking/>} />
-          <Route path="/booking-success" element={<BookingSuccess/>} />
-          {/* <Route path="/profile" element={<Profile />} /> */}
-          {/* <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} /> */}
+          <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/booking-success" element={<BookingSuccess />} />
         </Route>
-        {/* Protected Routes */}
-        {/* <Route
-          element={
-            <ProtectedRoutes>
-              <Layout />
-            </ProtectedRoutes>
-          }
-        >
-          <Route path="/" element={<Home />} />
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
-        </Route> */}
       </Routes>
     </div>
   );
