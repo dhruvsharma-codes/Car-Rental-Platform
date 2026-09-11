@@ -17,8 +17,8 @@ const Footer = () => {
     });
   }, [location.pathname]);
   return (
-    <footer className="w-full bg-white pt-15 pb-10">
-      <div className="mx-auto max-w-7xl">
+    <footer className="w-full bg-white pt-15 pb-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl ">
         <div className="flex flex-col gap-15">
           {/* top */}
           <div className="flex justify-between">
