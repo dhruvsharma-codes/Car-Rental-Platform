@@ -215,6 +215,7 @@
 const { Booking, Car } = require("../models");
 
 const stripe = require("../config/stripe");
+const { sendBookingConfirmationEmail } = require("../services/emailService.js");
 
 /*
 |--------------------------------------------------------------------------
@@ -412,16 +413,113 @@ const createPaymentIntent = async (req, res) => {
 |--------------------------------------------------------------------------
 */
 
+// const confirmBookingPayment = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Find booking
+//     |--------------------------------------------------------------------------
+//     */
+
+//     const booking = await Booking.findByPk(id);
+
+//     if (!booking) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "Booking not found",
+//       });
+//     }
+
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Check PaymentIntent ID
+//     |--------------------------------------------------------------------------
+//     */
+
+//     if (!booking.stripePaymentIntentId) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "PaymentIntent not found",
+//       });
+//     }
+
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Retrieve PaymentIntent from Stripe
+//     |--------------------------------------------------------------------------
+//     */
+
+//     const paymentIntent = await stripe.paymentIntents.retrieve(
+//       booking.stripePaymentIntentId,
+//     );
+
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Verify payment
+//     |--------------------------------------------------------------------------
+//     */
+
+//     if (paymentIntent.status !== "succeeded") {
+//       return res.status(400).json({
+//         success: false,
+
+//         message: "Payment has not been completed",
+
+//         paymentStatus: paymentIntent.status,
+//       });
+//     }
+
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Update booking
+//     |--------------------------------------------------------------------------
+//     */
+
+//     await booking.update({
+//       paymentStatus: "paid",
+
+//       bookingStatus: "confirmed",
+//     });
+
+//     /*
+//     |--------------------------------------------------------------------------
+//     | Response
+//     |--------------------------------------------------------------------------
+//     */
+
+//     return res.status(200).json({
+//       success: true,
+
+//       message: "Payment successful and booking confirmed",
+
+//       bookingId: booking.id,
+
+//       paymentStatus: "paid",
+
+//       bookingStatus: "confirmed",
+//     });
+//   } catch (error) {
+//     console.error("Confirm Payment Error:", error);
+
+//     return res.status(500).json({
+//       success: false,
+//       message: "Unable to confirm payment",
+//     });
+//   }
+// };
+
 const confirmBookingPayment = async (req, res) => {
   try {
     const { id } = req.params;
-    /*
-    |--------------------------------------------------------------------------
-    | Find booking
-    |--------------------------------------------------------------------------
-    */
 
-    const booking = await Booking.findByPk(id);
+    const booking = await Booking.findByPk(id, {
+      include: [
+        {
+          model: Car,
+        },
+      ],
+    });
 
     if (!booking) {
       return res.status(404).json({
@@ -430,80 +528,80 @@ const confirmBookingPayment = async (req, res) => {
       });
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Check PaymentIntent ID
-    |--------------------------------------------------------------------------
-    */
-
     if (!booking.stripePaymentIntentId) {
       return res.status(400).json({
         success: false,
-        message: "PaymentIntent not found",
+        message: "Payment Intent not found",
       });
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Retrieve PaymentIntent from Stripe
-    |--------------------------------------------------------------------------
-    */
-
     const paymentIntent = await stripe.paymentIntents.retrieve(
-      booking.stripePaymentIntentId,
+      booking.stripePaymentIntentId
     );
-
-    /*
-    |--------------------------------------------------------------------------
-    | Verify payment
-    |--------------------------------------------------------------------------
-    */
 
     if (paymentIntent.status !== "succeeded") {
       return res.status(400).json({
         success: false,
-
         message: "Payment has not been completed",
-
-        paymentStatus: paymentIntent.status,
       });
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Update booking
-    |--------------------------------------------------------------------------
-    */
+    // Already confirmed?
+    if (
+      booking.paymentStatus === "paid" &&
+      booking.bookingStatus === "confirmed"
+    ) {
+      return res.status(200).json({
+        success: true,
+        message: "Booking already confirmed",
+        booking,
+      });
+    }
 
-    await booking.update({
-      paymentStatus: "paid",
+    // Update booking
+    booking.paymentStatus = "paid";
+    booking.bookingStatus = "confirmed";
 
-      bookingStatus: "confirmed",
-    });
+    await booking.save();
 
-    /*
-    |--------------------------------------------------------------------------
-    | Response
-    |--------------------------------------------------------------------------
-    */
+    // Send confirmation email
+    try {
+      await sendBookingConfirmationEmail({
+        customerName: booking.customerName,
+        customerEmail: booking.customerEmail,
+        bookingId: booking.id,
+
+        car: booking.Car,
+
+        pickupDate: booking.pickupDate,
+        pickupLocation: booking.pickupLocation,
+
+        returnDate: booking.returnDate,
+        returnLocation: booking.returnLocation,
+
+        rentalDays: booking.rentalDays,
+        pricePerDay: booking.pricePerDay,
+        totalAmount: booking.totalAmount,
+      });
+    } catch (emailError) {
+      console.error(
+        "Booking confirmed, but email failed:",
+        emailError
+      );
+    }
 
     return res.status(200).json({
       success: true,
-
       message: "Payment successful and booking confirmed",
-
-      bookingId: booking.id,
-
-      paymentStatus: "paid",
-
-      bookingStatus: "confirmed",
+      booking,
     });
+
   } catch (error) {
-    console.error("Confirm Payment Error:", error);
+    console.error("Confirm booking error:", error);
 
     return res.status(500).json({
       success: false,
-      message: "Unable to confirm payment",
+      message: "Failed to confirm booking",
     });
   }
 };

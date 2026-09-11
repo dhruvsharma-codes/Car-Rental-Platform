@@ -1,66 +1,75 @@
 import { Link, useNavigate } from "react-router-dom";
 import hero_Car from "../../assets/herocar.png";
 import { useState } from "react";
+
 const Hero = () => {
   const navigate = useNavigate();
   const [carType, setCarType] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!carType) {
       return;
     }
+
     navigate(`/vehicles?type=${carType}`);
   };
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#5937E0]  relative overflow-hidden rounded-3xl min-h-145 flex items-center justify-between px-10">
-        {/* background-image */}
+    <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative flex min-h-150 flex-col items-center justify-between gap-10 overflow-hidden rounded-3xl bg-[#5937E0] px-5 py-10 sm:px-8 sm:py-12 lg:min-h-145 lg:flex-row lg:gap-12 lg:px-10 lg:py-0">
+        {/* Background Image */}
         <img
           src={hero_Car}
-          alt="hero_car"
-          className="absolute z-0 w-180 h-auto object-contain left-80 bottom-8 blur-md opacity-80 scale-125"
+          alt="Hero car"
+          className="absolute bottom-0 left-1/2 z-0 w-125 max-w-none -translate-x-1/2 scale-110 object-contain opacity-70 blur-md sm:w-162.5 lg:left-[52%] lg:w-180 lg:-translate-x-1/2 lg:scale-125"
         />
-        {/* left content */}
-        <div className=" relative z-20 text-white">
-          <h1 className="text-[60px] font-bold leading-16">
+
+        {/* Left Content */}
+        <div className="relative z-20 w-full max-w-140 text-center text-white lg:text-left">
+          <h1 className="font-secondary text-[38px] font-bold leading-tight sm:text-[48px] lg:text-[60px] lg:leading-[1.07]">
             Experience the road
-            <br />
+            <br className="hidden sm:block" />
             like never before
           </h1>
-          <p className="text-[16px] font-normal mt-5 max-w-105">
+
+          <p className="mx-auto mt-5 max-w-105 text-[15px] font-normal leading-6 sm:text-[16px] lg:mx-0">
             Aliquam adipiscing velit semper morbi. Purus non eu cursus porttitor
             tristique et gravida. Quis nunc interdum gravida ullamcorper.
           </p>
-          <Link to={"/vehicles"}>
-            <button className="mt-5 cursor-pointer bg-[#FF9E0C] text-white px-7 py-3 rounded-md text-[16px] font-semibold">
+
+          <Link to="/vehicles">
+            <button className="mt-5 cursor-pointer rounded-md bg-[#FF9E0C] px-7 py-3 text-[16px] font-semibold text-white">
               View all cars
             </button>
           </Link>
         </div>
-        {/* booking form */}
-        <div className=" relative z-30 bg-white rounded-xl p-5 w-84">
-          <h2 className="text-center font-semibold text-[28px] mb-4">
+
+        {/* Booking Form */}
+        <div className="relative z-30 w-full max-w-84 rounded-xl bg-white p-5 shadow-lg sm:max-w-90">
+          <h2 className="mb-4 text-center text-[26px] font-semibold sm:text-[28px]">
             Book your car
           </h2>
 
-          <form className="flex flex-col gap-4">
-            {/* Car type */}
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            {/* Car Type */}
             <select
               value={carType}
               onChange={(e) => setCarType(e.target.value)}
-              className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none"
+              className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none"
             >
-              <option>Car type</option>
-              <option>Sedan</option>
-              <option>SUV</option>
-              <option>Sport</option>
-              <option>Pickup</option>
-              <option>Cabriolet</option>
-              <option>Minivan</option>
+              <option value="">Car type</option>
+              <option value="Sedan">Sedan</option>
+              <option value="SUV">SUV</option>
+              <option value="Sport">Sport</option>
+              <option value="Pickup">Pickup</option>
+              <option value="Cabriolet">Cabriolet</option>
+              <option value="Minivan">Minivan</option>
             </select>
 
-            {/* Rental place */}
-            <select className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+            {/* Rental Place */}
+            <select className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none">
               <option>Place of rental</option>
               <option>Delhi</option>
               <option>Mumbai</option>
@@ -68,8 +77,8 @@ const Hero = () => {
               <option>Chandigarh</option>
             </select>
 
-            {/* Return place */}
-            <select className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+            {/* Return Place */}
+            <select className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none">
               <option>Place of return</option>
               <option>Delhi</option>
               <option>Mumbai</option>
@@ -77,23 +86,22 @@ const Hero = () => {
               <option>Chandigarh</option>
             </select>
 
-            {/* Rental date */}
+            {/* Rental Date */}
             <input
               type="date"
-              className="w-full bg-gray-100 rounded-md leading-5 px-3 py-2 text-[16px] outline-none"
+              className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none"
             />
 
-            {/* Return date */}
+            {/* Return Date */}
             <input
               type="date"
-              className="w-full bg-gray-100 rounded-md px-3 leading-5 py-2 text-[16px] outline-none"
+              className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none"
             />
 
             {/* Button */}
             <button
-              onClick={handleSubmit}
               type="submit"
-              className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-md text-[16px] font-semibold mt-2"
+              className="mt-2 w-full cursor-pointer rounded-md bg-[#FF9E0C] px-7 py-3 text-[16px] font-semibold leading-5 text-white"
             >
               Book now
             </button>
