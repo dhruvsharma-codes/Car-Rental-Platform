@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
 
           {/* ================= BOTTOM ================= */}
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:justify-items-center lg:grid-cols-4 lg:gap-12">
             {/* About */}
             <div className="flex flex-col gap-8">
               <p className="max-w-70 font-secondary text-[18px] font-semibold leading-7 sm:text-[20px]">

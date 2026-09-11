@@ -32,9 +32,9 @@ const Hero = () => {
             tristique et gravida. Quis nunc interdum gravida ullamcorper.
           </p>
           <Link to={"/vehicles"}>
-          <button className="mt-5 cursor-pointer bg-[#FF9E0C] text-white px-7 py-3 rounded-md text-[16px] font-semibold">
-            View all cars
-          </button>
+            <button className="mt-5 cursor-pointer bg-[#FF9E0C] text-white px-7 py-3 rounded-md text-[16px] font-semibold">
+              View all cars
+            </button>
           </Link>
         </div>
         {/* booking form */}
@@ -45,7 +45,11 @@ const Hero = () => {
 
           <form className="flex flex-col gap-4">
             {/* Car type */}
-            <select value={carType} onChange={(e)=>setCarType(e.target.value)} className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+            <select
+              value={carType}
+              onChange={(e) => setCarType(e.target.value)}
+              className="w-full bg-gray-100 leading-5 rounded-md px-3 py-2 text-[16px] outline-none"
+            >
               <option>Car type</option>
               <option>Sedan</option>
               <option>SUV</option>
@@ -86,7 +90,11 @@ const Hero = () => {
             />
 
             {/* Button */}
-            <button  onClick={handleSubmit} type="submit" className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-md text-[16px] font-semibold mt-2">
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-md text-[16px] font-semibold mt-2"
+            >
               Book now
             </button>
           </form>
@@ -97,9 +105,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
-
-
