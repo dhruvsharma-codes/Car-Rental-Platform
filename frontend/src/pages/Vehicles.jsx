@@ -1,17 +1,23 @@
+
 import sedan from "../assets/011-sedan.png";
 import cabriolet from "../assets/039-cabriolet.png";
 import pickup from "../assets/002-pickup.png";
 import suv from "../assets/012-suv.png";
 import minivan from "../assets/034-minivan.png";
+
 import Card from "../components/Card/Card";
 import { cars } from "../assets/cars";
 import Logos from "../components/Logos/Logos";
+
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 const Vehicles = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   // const typeFromUrl = searchParams.get("type");
   // const [vehicles, setVehicles] = useState(typeFromUrl || "All vehicles");
+
   const vehicles = searchParams.get("type") || "All vehicles";
 
   useEffect(() => {
@@ -35,42 +41,61 @@ const Vehicles = () => {
     switch (vehicles) {
       case "Sedan":
         return cars.filter((car) => car.type === "Sedan");
+
       case "Cabriolet":
         return cars.filter((car) => car.type === "Cabriolet");
+
       case "Pickup":
         return cars.filter((car) => car.type === "Pickup");
+
       case "SUV":
         return cars.filter((car) => car.type === "SUV");
+
       case "Minivan":
         return cars.filter((car) => car.type === "Minivan");
+
       case "Sport":
         return cars.filter((car) => car.type === "Sport");
+
       case "All vehicles":
       default:
         return cars;
     }
   };
+
   const [visibleCount, setVisibleCount] = useState(6);
+
   const filteredCars = getFilterCars();
+
   const visibleCars = filteredCars.slice(0, visibleCount);
+
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 6);
   };
+
   return (
     <section className="w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div id="vehicles" className="flex flex-col items-center gap-10">
-          {/* text */}
-          <h2 className="text-center max-w-136.25 font-bold text-[50px] font-secondary">
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+
+        <div
+          id="vehicles"
+          className="flex flex-col items-center gap-8 sm:gap-10"
+        >
+
+          {/* Heading */}
+          <h2 className="max-w-[545px] text-center font-secondary text-[36px] font-bold leading-tight sm:text-[44px] lg:text-[50px]">
             Select a vehicle group
           </h2>
-          <div className="flex max-w-252 gap-6 items-center justify-center">
+
+          {/* Vehicle Filters */}
+          <div className="flex w-full max-w-[1000px] flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
+
             {/* All Vehicles */}
             <button
               onClick={() => handleVehicleChange("All vehicles")}
-              className={`px-4 py-2 rounded-[50px] text-[16px] font-medium cursor-pointer ${
+              className={`cursor-pointer rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "All vehicles"
-                  ? "text-white bg-[#5937E0]"
+                  ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
@@ -80,80 +105,114 @@ const Vehicles = () => {
             {/* Sedan */}
             <button
               onClick={() => handleVehicleChange("Sedan")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "Sedan"
                   ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
-              <img className="w-7 h-7" src={sedan} alt="sedan" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={sedan}
+                alt="sedan"
+              />
+
               <span>Sedan</span>
             </button>
 
             {/* Cabriolet */}
             <button
               onClick={() => handleVehicleChange("Cabriolet")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "Cabriolet"
                   ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
-              <img src={cabriolet} alt="cabriolet" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={cabriolet}
+                alt="cabriolet"
+              />
+
               <span>Cabriolet</span>
             </button>
 
             {/* Pickup */}
             <button
               onClick={() => handleVehicleChange("Pickup")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "Pickup"
                   ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
-              <img src={pickup} alt="pickup" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={pickup}
+                alt="pickup"
+              />
+
               <span>Pickup</span>
             </button>
 
             {/* SUV */}
             <button
               onClick={() => handleVehicleChange("SUV")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
-                vehicles === "SUV" ? "bg-[#5937E0] text-white" : "bg-[#F9F9F9]"
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
+                vehicles === "SUV"
+                  ? "bg-[#5937E0] text-white"
+                  : "bg-[#F9F9F9]"
               }`}
             >
-              <img src={suv} alt="suv" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={suv}
+                alt="suv"
+              />
+
               <span>SUV</span>
             </button>
 
             {/* Sport */}
             <button
               onClick={() => handleVehicleChange("Sport")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "Sport"
                   ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
-              <img src={sedan} alt="suv" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={sedan}
+                alt="sport"
+              />
+
               <span>Sport</span>
             </button>
 
             {/* Minivan */}
             <button
               onClick={() => handleVehicleChange("Minivan")}
-              className={`flex gap-2 px-4 py-2 text-[16px] font-medium items-center rounded-[50px] cursor-pointer ${
+              className={`flex cursor-pointer items-center gap-2 rounded-[50px] px-4 py-2 text-[14px] font-medium sm:text-[16px] ${
                 vehicles === "Minivan"
                   ? "bg-[#5937E0] text-white"
                   : "bg-[#F9F9F9]"
               }`}
             >
-              <img src={minivan} alt="minivan" />
+              <img
+                className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+                src={minivan}
+                alt="minivan"
+              />
+
               <span>Minivan</span>
             </button>
           </div>
-          <div className="grid grid-cols-3 w-full gap-6">
+
+          {/* Cars */}
+          <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {visibleCars.map((item) => (
               <Card
                 key={item.id}
@@ -168,17 +227,20 @@ const Vehicles = () => {
               />
             ))}
           </div>
+
+          {/* Load More */}
           {visibleCount < filteredCars.length && (
-            <div className="flex justify-center mt-8">
+            <div className="mt-4 flex justify-center sm:mt-6">
               <button
                 onClick={handleLoadMore}
-                className="bg-[#5937E0] text-white px-8 py-3 rounded-md font-semibold cursor-pointer"
+                className="cursor-pointer rounded-md bg-[#5937E0] px-7 py-3 text-[15px] font-semibold text-white sm:px-8 sm:text-[16px]"
               >
                 Load More
               </button>
             </div>
           )}
         </div>
+
         <Logos />
       </div>
     </section>

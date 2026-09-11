@@ -1,3 +1,4 @@
+
 import blur1 from "../assets/blur1.png";
 import blur2 from "../assets/blur2.png";
 import blur3 from "../assets/blur3.png";
@@ -7,155 +8,273 @@ import Card from "../components/Card/Card";
 import { cars } from "../assets/cars";
 import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
+
 const Details = () => {
   const { id } = useParams();
+
   const car = cars.find((item) => item.id === Number(id));
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }, [id]);
+
   if (!car) {
     return <h1>Car not found</h1>;
   }
+
   return (
     <section className="w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15">
-        <div className="flex flex-wrap justify-center gap-15">
-          {/* left */}
-          <div className="flex flex-col gap-5">
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-15">
+
+        {/* ================= CAR DETAILS ================= */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-12">
+
+          {/* LEFT */}
+          <div className="w-full lg:flex-1">
+
             <div className="flex flex-col gap-5">
-              <div className="flex flex-col gap-5">
-                <div className="text-[40px] font-bold">{car.name}</div>
-                <div className="text-[#5937E0] font-semibold font-secondary text-[40px]">
+
+              <div className="flex flex-col gap-3">
+                <div className="font-secondary text-[32px] font-bold sm:text-[36px] lg:text-[40px]">
+                  {car.name}
+                </div>
+
+                <div className="font-secondary text-[32px] font-semibold text-[#5937E0] sm:text-[36px] lg:text-[40px]">
                   ${car.price}
-                  <span className="text-[16px] text-black/80">/day</span>
+
+                  <span className="text-[14px] text-black/80 sm:text-[16px]">
+                    /day
+                  </span>
                 </div>
               </div>
-              <img className="min-h-76" src={car.image} alt={car.id} />
+
+              {/* Main Car Image */}
+              <div className="flex min-h-[260px] items-center justify-center sm:min-h-[320px] lg:min-h-[380px]">
+                <img
+                  className="h-auto max-h-[380px] w-full object-contain"
+                  src={car.image}
+                  alt={car.name}
+                />
+              </div>
+
             </div>
-            <div className="flex gap-6 w-full justify-start">
-              <img src={blur1} alt="blur1" />
-              <img src={blur2} alt="blur2" />
-              <img src={blur3} alt="blur3" />
+
+            {/* Small Images */}
+            <div className="mt-5 flex w-full justify-center gap-4 sm:justify-start sm:gap-6">
+              <img
+                className="h-auto w-[70px] sm:w-[90px]"
+                src={blur1}
+                alt="blur1"
+              />
+
+              <img
+                className="h-auto w-[70px] sm:w-[90px]"
+                src={blur2}
+                alt="blur2"
+              />
+
+              <img
+                className="h-auto w-[70px] sm:w-[90px]"
+                src={blur3}
+                alt="blur3"
+              />
             </div>
           </div>
-          {/* right */}
-          <div className="w-159 flex flex-col gap-16">
-            <div className="flex gap-10 flex-col">
-              <h3 className="text-[24px] font-semibold font-secondary">
+
+          {/* RIGHT */}
+          <div className="w-full lg:max-w-[620px]">
+
+            {/* Technical Specification */}
+            <div className="flex flex-col gap-8 sm:gap-10">
+
+              <h3 className="font-secondary text-[22px] font-semibold sm:text-[24px]">
                 Technical Specification
               </h3>
-              <div className="grid grid-cols-3 gap-6">
-                <div className="bg-[#FAFAFA] p-6 rounded-xl">
-                  <img src={gear_shift} alt="gear-shift" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+                {/* Gear Box */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt="gear-shift"
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Gear Box
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.gearbox}
                   </span>
                 </div>
-                <div className="bg-[#FAFAFA] p-6 rounded-xl">
-                  <img src={gear_shift} alt="" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+                {/* Fuel */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt=""
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Fuel
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.fuel}
                   </span>
                 </div>
-                <div className="bg-[#FAFAFA] p-6 roundedxl">
-                  <img src={gear_shift} alt="" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+                {/* Doors */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt=""
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Doors
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.doors}
                   </span>
                 </div>
-                <div className="bg-[#FAFAFA] p-6 rounded-xl">
-                  <img src={gear_shift} alt="" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+                {/* Air Conditioner */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt=""
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Air Conditioner
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.airConditioner}
                   </span>
                 </div>
-                <div className="bg-[#FAFAFA] p-6 rounded-xl">
-                  <img src={gear_shift} alt="" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+                {/* Seats */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt=""
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Seats
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.seats}
                   </span>
                 </div>
-                <div className="bg-[#FAFAFA] p-6 rounded-xl">
-                  <img src={gear_shift} alt="" />
-                  <h4 className="text-[16px] font-semibold font-secondary mt-5">
+
+                {/* Mileage */}
+                <div className="rounded-xl bg-[#FAFAFA] p-5 sm:p-6">
+                  <img
+                    className="h-6 w-6"
+                    src={gear_shift}
+                    alt=""
+                  />
+
+                  <h4 className="mt-4 font-secondary text-[16px] font-semibold">
                     Mileage
                   </h4>
-                  <span className="text-[16px] font-normal text-black/60 mt-2">
+
+                  <span className="mt-2 block text-[16px] font-normal text-black/60">
                     {car.distance}
                   </span>
                 </div>
+
               </div>
             </div>
-            <div>
-              <Link to={`/booking/${car.id}`}>
-                <button className="px-7 max-w-73 py-3.5 text-white bg-[#5937E0] rounded-xl w-full text-[16px] semibold">
-                  Rent a car
-                </button>
+
+            {/* Rent Button */}
+            <div className="mt-8">
+              <Link
+                to={`/booking/${car.id}`}
+                className="flex w-full max-w-[292px] items-center justify-center rounded-xl bg-[#5937E0] px-7 py-3.5 text-[16px] font-semibold text-white"
+              >
+                Rent a car
               </Link>
             </div>
-            <div className="flex flex-col gap-5">
-              <h3 className="text-[24px] font-semibold font-secondary">
+
+            {/* Equipment */}
+            <div className="mt-10 flex flex-col gap-5">
+
+              <h3 className="font-secondary text-[22px] font-semibold sm:text-[24px]">
                 Car Equipment
               </h3>
-              <div className="flex gap-15">
-                <ul className="flex gap-5 flex-col">
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <ul className="flex flex-col gap-4 sm:gap-5">
                   {car.equipment?.slice(0, 3).map((item) => (
-                    <li key={item} className="flex items-center gap-3.5">
-                      <span className="bg-[#5937E0] text-white rounded-full p-1 leading-1">
-                        <Check />
+                    <li
+                      key={item}
+                      className="flex items-center gap-3"
+                    >
+                      <span className="flex shrink-0 items-center justify-center rounded-full bg-[#5937E0] p-1 text-white">
+                        <Check size={16} />
                       </span>
-                      {item}
+
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <ul className="flex gap-5 flex-col">
+                <ul className="flex flex-col gap-4 sm:gap-5">
                   {car.equipment?.slice(3, 6).map((item) => (
-                    <li key={item} className="flex items-center gap-3.5">
-                      <span className="bg-[#5937E0] text-white rounded-full p-1 leading-1">
-                        <Check />
+                    <li
+                      key={item}
+                      className="flex items-center gap-3"
+                    >
+                      <span className="flex shrink-0 items-center justify-center rounded-full bg-[#5937E0] p-1 text-white">
+                        <Check size={16} />
                       </span>
-                      {item}
+
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
+
               </div>
             </div>
           </div>
         </div>
 
-        {/* other cars */}
-        <div className="flex flex-col gap-10 py-15 px-4 mt-2">
-          <div className="flex justify-between items-center w-full">
-            <h3 className="w-120 text-[50px] font-bold leading-13 font-secondary text-black">
+        {/* ================= OTHER CARS ================= */}
+        <div className="mt-8 flex flex-col gap-8 px-0 py-10 sm:gap-10 sm:px-4 sm:py-12 lg:py-15">
+
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+
+            <h3 className="font-secondary text-[36px] font-bold leading-tight text-black sm:text-[44px] lg:text-[50px]">
               Other cars
             </h3>
+
             <Link
-              to={"/vehicles"}
-              className=" flex gap-2 mt-8 text-[20px] font-bold font-secondary"
+              to="/vehicles"
+              className="flex items-center gap-2 self-start font-secondary text-[18px] font-bold sm:self-auto sm:text-[20px]"
             >
-              View All <ArrowRight width={24} height={24} />
+              View All
+              <ArrowRight size={24} />
             </Link>
+
           </div>
-          <div className="grid grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {cars.slice(0, 6).map((item) => (
               <Card
                 key={item.id}
@@ -170,6 +289,7 @@ const Details = () => {
               />
             ))}
           </div>
+
         </div>
       </div>
     </section>

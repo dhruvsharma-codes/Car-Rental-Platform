@@ -1,7 +1,10 @@
+
 import gear_shift from "../../assets/gear-shift.png";
 import g17 from "../../assets/g17.png";
 import g1593 from "../../assets/g1593.png";
+
 import { Link } from "react-router-dom";
+
 const Card = ({
   id,
   image,
@@ -15,49 +18,96 @@ const Card = ({
   return (
     <Link
       to={`/details/${id}`}
-      className="p-6 shadow-md hover:scale-105 transition-transform duration-500 bg-[#FAFAFA] rounded-[20px]"
+      className="block rounded-[20px] bg-[#FAFAFA] p-4 shadow-md transition-transform duration-500 hover:scale-[1.02] sm:p-5 lg:p-6"
     >
       <div>
-        <img className="h-50 object-cover w-full" src={image} alt={id} />
+
+        {/* Car Image */}
+        <img
+          className="h-auto max-h-[200px] w-full object-contain sm:h-[200px]"
+          src={image}
+          alt={name}
+        />
+
         <div className="mt-4 flex flex-col gap-5">
-          <div className="flex justify-between items-center">
-            <div>
-              <h3 className="text-[24px] font-semibold font-secondary text-black mb-0">
+
+          {/* Name + Price */}
+          <div className="flex items-start justify-between gap-4">
+
+            <div className="min-w-0">
+              <h3 className="font-secondary text-[20px] font-semibold leading-tight text-black sm:text-[22px] lg:text-[24px]">
                 {name}
               </h3>
-              <span className="text-[16px] font-normal mt-2">{type}</span>
+
+              <span className="mt-1 block text-[14px] font-normal sm:text-[16px]">
+                {type}
+              </span>
             </div>
-            <div>
-              <h4 className="text-end text-[24px] text-[#5937E0] font-semibold">
+
+            <div className="shrink-0 text-right">
+              <h4 className="font-secondary text-[20px] font-semibold text-[#5937E0] sm:text-[22px] lg:text-[24px]">
                 ${price}
               </h4>
-              <span className="text-[14px] font-normal">per day</span>
+
+              <span className="text-[12px] font-normal sm:text-[14px]">
+                per day
+              </span>
             </div>
+
           </div>
-          <div className="flex justify-between items-center">
-            <div>
+
+          {/* Car Features */}
+          <div className="grid grid-cols-3 gap-2">
+
+            {/* Transmission */}
+            <div className="flex min-w-0 items-center gap-1">
               <img
-                className="inline"
+                className="h-5 w-5 shrink-0 sm:h-6 sm:w-6"
                 src={gear_shift}
                 alt="gear-shift"
-                width={24}
               />
-              <span className="text-[16px] font-normal ml-1">
+
+              <span className="truncate text-[13px] font-normal sm:text-[14px] lg:text-[16px]">
                 {transmission}
               </span>
             </div>
-            <div>
-              <img className="inline" src={g17} alt="g17" width={24} />
-              <span className="text-[16px] font-normal ml-1">{seats}</span>
+
+            {/* Seats */}
+            <div className="flex min-w-0 items-center gap-1">
+              <img
+                className="h-5 w-5 shrink-0 sm:h-6 sm:w-6"
+                src={g17}
+                alt="seats"
+              />
+
+              <span className="truncate text-[13px] font-normal sm:text-[14px] lg:text-[16px]">
+                {seats}
+              </span>
             </div>
-            <div>
-              <img className="inline" src={g1593} alt="g1593" width={24} />
-              <span className="text-[16px] font-normal ml-1">{feature}</span>
+
+            {/* Feature */}
+            <div className="flex min-w-0 items-center gap-1">
+              <img
+                className="h-5 w-5 shrink-0 sm:h-6 sm:w-6"
+                src={g1593}
+                alt="feature"
+              />
+
+              <span className="truncate text-[13px] font-normal sm:text-[14px] lg:text-[16px]">
+                {feature}
+              </span>
             </div>
+
           </div>
+
         </div>
       </div>
-      <button className="bg-[#5937E0] cursor-pointer mt-6 w-full px-7 py-3.5 rounded-xl text-white font-semibold text-[16px]">
+
+      {/* View Details */}
+      <button
+        type="button"
+        className="mt-6 w-full cursor-pointer rounded-xl bg-[#5937E0] px-5 py-3 text-[15px] font-semibold text-white sm:px-7 sm:py-3.5 sm:text-[16px]"
+      >
         View Details
       </button>
     </Link>

@@ -1,24 +1,38 @@
+
 import { Clock, LocationEdit, Mail, Phone } from "lucide-react";
+
 import contactCar from "../assets/contactcar.png";
+
 import Logos from "../components/Logos/Logos";
+
 import news1 from "../assets/news1.png";
 import news2 from "../assets/news2.png";
 import news3 from "../assets/news3.png";
+
 import Blogs from "../components/Blogs/Blogs";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import { useEffect, useState } from "react";
+
 const Contact = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
+
   const location = useLocation();
   const navigate = useNavigate();
+
   const [carType, setCarType] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!carType) {
       return;
     }
+
     navigate(`/vehicles?type=${carType}`);
   };
+
   useEffect(() => {
     if (location.hash === "#blog") {
       document.getElementById("blog")?.scrollIntoView({
@@ -60,31 +74,38 @@ const Contact = () => {
 
   return (
     <section className="w-full">
-      <div className="max-w-7xl m-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="flex justify-center w-full items-center min-h-60 ">
-          {/* contact text */}
-          <div className="flex flex-col gap-4">
-            <h6 className="text-[50px] font-bold font-secondary">Contact Us</h6>
-            <p className="text-[20px] font-normal">
-              <Link to={"/"}>Home</Link> /{" "}
+      <div className="mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+
+        {/* ================= PAGE TITLE ================= */}
+        <div className="flex min-h-[220px] w-full items-center justify-center py-10 sm:min-h-[240px] lg:min-h-60">
+          <div className="flex flex-col gap-3 sm:gap-4">
+            <h6 className="font-secondary text-[36px] font-bold sm:text-[44px] lg:text-[50px]">
+              Contact Us
+            </h6>
+
+            <p className="text-[16px] font-normal sm:text-[18px] lg:text-[20px]">
+              <Link to="/">Home</Link> /{" "}
               <span className="font-medium">Contact Us</span>
             </p>
           </div>
         </div>
 
-        {/* form */}
-        <div className="flex  justify-between py-15">
-          <div className=" relative z-30 bg-[#5937E0] rounded-[20px] p-6  w-96">
-            <h2 className="text-center font-semibold text-white text-[28px] mb-4">
+        {/* ================= BOOKING FORM ================= */}
+        <div className="flex flex-col items-center justify-between gap-10 py-10 sm:py-12 lg:flex-row lg:gap-8 lg:py-15">
+
+          {/* Form */}
+          <div className="relative z-30 w-full max-w-[384px] rounded-[20px] bg-[#5937E0] p-5 sm:p-6 lg:flex-shrink-0">
+            <h2 className="mb-4 text-center text-[24px] font-semibold text-white sm:text-[28px]">
               Book your car
             </h2>
 
-            <form className="flex flex-col gap-6 w-full mt-8">
+            <form className="mt-6 flex w-full flex-col gap-5 sm:mt-8 sm:gap-6">
+
               {/* Car type */}
               <select
                 value={carType}
                 onChange={(e) => setCarType(e.target.value)}
-                className="w-full bg-[#694BE3] text-white/80 leading-5 rounded-md px-3 py-2 text-[16px] outline-none"
+                className="w-full rounded-md bg-[#694BE3] px-3 py-2 text-[15px] leading-5 text-white/80 outline-none sm:text-[16px]"
               >
                 <option>Car type</option>
                 <option>Sedan</option>
@@ -97,7 +118,7 @@ const Contact = () => {
               </select>
 
               {/* Rental place */}
-              <select className="w-full bg-[#694BE3] text-white/80 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+              <select className="w-full rounded-md bg-[#694BE3] px-3 py-2 text-[15px] leading-5 text-white/80 outline-none sm:text-[16px]">
                 <option>Place of rental</option>
                 <option>Delhi</option>
                 <option>Mumbai</option>
@@ -106,7 +127,7 @@ const Contact = () => {
               </select>
 
               {/* Return place */}
-              <select className="w-full bg-[#694BE3] text-white/80 leading-5 rounded-md px-3 py-2 text-[16px] outline-none">
+              <select className="w-full rounded-md bg-[#694BE3] px-3 py-2 text-[15px] leading-5 text-white/80 outline-none sm:text-[16px]">
                 <option>Place of return</option>
                 <option>Delhi</option>
                 <option>Mumbai</option>
@@ -117,83 +138,117 @@ const Contact = () => {
               {/* Rental date */}
               <input
                 type="date"
-                className="w-full bg-[#694BE3] text-white/80 rounded-md leading-5 px-3 py-2 text-[16px] outline-none"
+                className="w-full rounded-md bg-[#694BE3] px-3 py-2 text-[15px] leading-5 text-white/80 outline-none sm:text-[16px]"
               />
 
               {/* Return date */}
               <input
                 type="date"
-                className="w-full bg-[#694BE3] text-white/80 rounded-md px-3 leading-5 py-2 text-[16px] outline-none"
+                className="w-full rounded-md bg-[#694BE3] px-3 py-2 text-[15px] leading-5 text-white/80 outline-none sm:text-[16px]"
               />
 
               {/* Button */}
               <button
                 onClick={handleSubmit}
-                className="w-full cursor-pointer bg-[#FF9E0C] text-white leading-5 py-3 px-7 rounded-xl text-[16px] font-semibold mt-2"
+                className="mt-2 w-full cursor-pointer rounded-xl bg-[#FF9E0C] px-7 py-3 text-[15px] font-semibold leading-5 text-white sm:text-[16px]"
               >
                 Book now
               </button>
             </form>
           </div>
-          <img className="w-200" src={contactCar} alt="contactcar" />
+
+          {/* Car image */}
+          <div className="flex w-full items-center justify-center lg:flex-1">
+            <img
+              className="h-auto w-full max-w-[500px] object-contain sm:max-w-[600px] lg:max-w-[700px]"
+              src={contactCar}
+              alt="contact car"
+            />
+          </div>
         </div>
 
-        {/* contacts*/}
-        <div className="py-15 text-start flex flex-wrap items-center justify-between">
-          <div className="flex gap-2 items-center">
-            <span className="text-white text-center flex items-center justify-center bg-[#FF9e0C] w-10 h-10 rounded-full">
+        {/* ================= CONTACT INFORMATION ================= */}
+        <div className="grid grid-cols-1 gap-8 py-10 text-start sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-6 lg:py-15">
+
+          {/* Address */}
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9E0C] text-center text-white">
               <LocationEdit size={22} />
             </span>
-            <div>
-              <span className="text-[16px] font-normal">Address</span>
-              <p className="text-[16px] font-semibold font-secondary">
+
+            <div className="min-w-0">
+              <span className="text-[15px] font-normal sm:text-[16px]">
+                Address
+              </span>
+
+              <p className="break-words font-secondary text-[15px] font-semibold sm:text-[16px]">
                 Oxford Ave, Cary, NC 27511
               </p>
             </div>
           </div>
-          <div className="flex gap-2 items-center">
-            <span className="text-white flex items-center justify-center bg-[#FF9e0C] w-10 h-10 rounded-full">
+
+          {/* Email */}
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9E0C] text-white">
               <Mail size={22} />
             </span>
-            <div>
-              <span className="text-[16px] font-normal">Email</span>
-              <p className="text-[16px] font-semibold font-secondary">
+
+            <div className="min-w-0">
+              <span className="text-[15px] font-normal sm:text-[16px]">
+                Email
+              </span>
+
+              <p className="break-all font-secondary text-[15px] font-semibold sm:text-[16px]">
                 nwiger@yahoo.com
               </p>
             </div>
           </div>
 
-          <div className="flex gap-2 items-center">
-            <span className="text-white flex items-center justify-center bg-[#FF9e0C] w-10 h-10 rounded-full">
+          {/* Phone */}
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9E0C] text-white">
               <Phone size={22} />
             </span>
+
             <div>
-              <span className="text-[16px] font-normal">Phone</span>
-              <p className="text-[16px] font-semibold font-secondary">
+              <span className="text-[15px] font-normal sm:text-[16px]">
+                Phone
+              </span>
+
+              <p className="font-secondary text-[15px] font-semibold sm:text-[16px]">
                 +537 547-6401
               </p>
             </div>
           </div>
 
-          <div className="flex gap-2 items-center">
-            <span className="text-white flex items-center justify-center bg-[#FF9e0C] w-10 h-10 rounded-full">
+          {/* Opening hours */}
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9E0C] text-white">
               <Clock size={22} />
             </span>
+
             <div>
-              <span className="text-[16px] font-normal">Opening hours</span>
-              <p className="text-[16px] font-semibold font-secondary">
+              <span className="text-[15px] font-normal sm:text-[16px]">
+                Opening hours
+              </span>
+
+              <p className="font-secondary text-[15px] font-semibold sm:text-[16px]">
                 Sun-Mon: 10am-10pm
               </p>
             </div>
           </div>
         </div>
 
-        {/* blogs */}
-        <div id="blog" className="py-15 flex flex-col gap-10">
-          <h1 className="text-[50px] font-bold font-secondary text-center">
+        {/* ================= BLOGS ================= */}
+        <div
+          id="blog"
+          className="flex flex-col gap-8 py-10 sm:gap-10 sm:py-12 lg:py-15"
+        >
+          <h1 className="font-secondary text-[34px] font-bold leading-tight sm:text-[42px] lg:text-[50px]">
             Latest blog posts & news
           </h1>
-          <div className="grid grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {newsData.map((item) => (
               <div
                 key={item.id}
@@ -213,19 +268,21 @@ const Contact = () => {
 
         <Logos />
       </div>
+
+      {/* ================= BLOG MODAL ================= */}
       {selectedBlog && (
         <div
-          className="fixed z-100 inset-0 bg-black/60 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 sm:p-4"
           onClick={() => setSelectedBlog(null)}
         >
           <div
-            className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl relative"
+            className="relative max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={() => setSelectedBlog(null)}
-              className="absolute top-4 right-4 z-10 bg-white w-10 h-10 rounded-full shadow-md text-xl cursor-pointer"
+              className="absolute right-3 top-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white text-xl shadow-md sm:right-4 sm:top-4 sm:h-10 sm:w-10"
             >
               ×
             </button>
@@ -234,22 +291,22 @@ const Contact = () => {
             <img
               src={selectedBlog.image}
               alt={selectedBlog.title}
-              className="w-full h-75 object-cover rounded-t-2xl"
+              className="h-[220px] w-full rounded-t-2xl object-cover sm:h-[300px] lg:h-[375px]"
             />
 
             {/* Blog Content */}
-            <div className="p-6 sm:p-8 text-left">
-              <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
+            <div className="p-5 text-left sm:p-8">
+              <div className="mb-3 flex flex-wrap items-center gap-2 text-sm text-gray-500 sm:gap-3">
                 <span>{selectedBlog.category}</span>
                 <span>•</span>
                 <span>{selectedBlog.date}</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-bold font-secondary mb-4">
+              <h2 className="mb-4 font-secondary text-2xl font-bold leading-tight sm:text-3xl">
                 {selectedBlog.title}
               </h2>
 
-              <p className="text-gray-600 text-base leading-7">
+              <p className="text-base leading-7 text-gray-600">
                 {selectedBlog.description}
               </p>
             </div>
