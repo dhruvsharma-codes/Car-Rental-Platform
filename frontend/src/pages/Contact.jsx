@@ -77,7 +77,7 @@ const Contact = () => {
       <div className="mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
 
         {/* ================= PAGE TITLE ================= */}
-        <div className="flex min-h-[220px] w-full items-center justify-center py-10 sm:min-h-[240px] lg:min-h-60">
+        <div className="flex min-h-55 w-full items-center justify-center py-10 sm:min-h-60 lg:min-h-60">
           <div className="flex flex-col gap-3 sm:gap-4">
             <h6 className="font-secondary text-[36px] font-bold sm:text-[44px] lg:text-[50px]">
               Contact Us
@@ -94,7 +94,7 @@ const Contact = () => {
         <div className="flex flex-col items-center justify-between gap-10 py-10 sm:py-12 lg:flex-row lg:gap-8 lg:py-15">
 
           {/* Form */}
-          <div className="relative z-30 w-full max-w-[384px] rounded-[20px] bg-[#5937E0] p-5 sm:p-6 lg:flex-shrink-0">
+          <div className="relative z-30 w-full max-w-[384px] rounded-[20px] bg-[#5937E0] p-5 sm:p-6 lg:shrink-0">
             <h2 className="mb-4 text-center text-[24px] font-semibold text-white sm:text-[28px]">
               Book your car
             </h2>
@@ -160,7 +160,7 @@ const Contact = () => {
           {/* Car image */}
           <div className="flex w-full items-center justify-center lg:flex-1">
             <img
-              className="h-auto w-full max-w-[500px] object-contain sm:max-w-[600px] lg:max-w-[700px]"
+              className="h-auto w-full max-w-125 object-contain sm:max-w-150 lg:max-w-175"
               src={contactCar}
               alt="contact car"
             />
@@ -181,7 +181,7 @@ const Contact = () => {
                 Address
               </span>
 
-              <p className="break-words font-secondary text-[15px] font-semibold sm:text-[16px]">
+              <p className="wrap-break-word font-secondary text-[15px] font-semibold sm:text-[16px]">
                 Oxford Ave, Cary, NC 27511
               </p>
             </div>
@@ -272,7 +272,7 @@ const Contact = () => {
       {/* ================= BLOG MODAL ================= */}
       {selectedBlog && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-3 sm:p-4"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 p-3 sm:p-4"
           onClick={() => setSelectedBlog(null)}
         >
           <div
@@ -291,7 +291,7 @@ const Contact = () => {
             <img
               src={selectedBlog.image}
               alt={selectedBlog.title}
-              className="h-[220px] w-full rounded-t-2xl object-cover sm:h-[300px] lg:h-[375px]"
+              className="h-55 w-full rounded-t-2xl object-cover sm:h-75 lg:h-93.75"
             />
 
             {/* Blog Content */}

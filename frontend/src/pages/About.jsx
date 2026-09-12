@@ -303,10 +303,10 @@ const About = () => {
         {/* ================= MOBILE APP DOWNLOAD ================= */}
         <div className="py-10 sm:py-12 lg:py-15">
 
-          <div className="relative flex min-h-[520px] flex-col overflow-hidden rounded-[24px] bg-[#5937E0] px-6 py-10 sm:min-h-[560px] sm:rounded-[32px] sm:px-10 sm:py-12 lg:min-h-[440px] lg:flex-row lg:items-center lg:px-12 xl:px-20">
+          <div className="relative flex min-h-130 flex-col overflow-hidden rounded-3xl bg-[#5937E0] px-6 py-10 sm:min-h-140 sm:rounded-4xl sm:px-10 sm:py-12 lg:min-h-110 lg:flex-row lg:items-center lg:px-12 xl:px-20">
 
             <img
-              className="absolute bottom-0 left-1/2 w-[260px] -translate-x-1/2 object-contain sm:w-[320px] lg:left-8 lg:w-[330px] lg:translate-x-0 xl:left-12"
+              className="absolute bottom-0 left-1/2 w-65 -translate-x-1/2 object-contain sm:w-[320px] lg:left-8 lg:w-82.5 lg:translate-x-0 xl:left-12"
               src={about_phone}
               alt="about-phone"
             />
@@ -333,13 +333,13 @@ const About = () => {
                 <img
                   src={appstore}
                   alt="appstore"
-                  className="h-auto w-[135px] sm:w-[150px]"
+                  className="h-auto w-33.75 sm:w-37.5"
                 />
 
                 <img
                   src={googleplay}
                   alt="googleplay"
-                  className="h-auto w-[135px] sm:w-[150px]"
+                  className="h-auto w-33.75 sm:w-37.5"
                 />
               </div>
 
@@ -348,7 +348,7 @@ const About = () => {
         </div>
 
         {/* ================= TESTIMONIALS ================= */}
-        <div className="flex flex-col gap-8 py-10 sm:gap-10 sm:py-12 lg:min-h-[700px] lg:py-15">
+        <div className="flex flex-col gap-8 py-10 sm:gap-10 sm:py-12 lg:min-h-175 lg:py-15">
 
           <h1 className="font-secondary text-[36px] font-bold leading-tight sm:text-[44px] lg:text-[50px]">
             Reviews from our customers
@@ -422,7 +422,7 @@ const About = () => {
         {/* ================= BANNER ================= */}
         <div className="py-10 sm:py-12 lg:py-15">
 
-          <div className="relative flex min-h-[500px] flex-col overflow-hidden rounded-[20px] bg-[#5937E0] px-6 py-10 sm:px-10 sm:py-12 lg:min-h-[430px] lg:flex-row lg:px-12 lg:py-14 xl:px-20">
+          <div className="relative flex min-h-125 flex-col overflow-hidden rounded-[20px] bg-[#5937E0] px-6 py-10 sm:px-10 sm:py-12 lg:min-h-107.5 lg:flex-row lg:px-12 lg:py-14 xl:px-20">
 
             <div className="relative z-10 flex w-full flex-col items-start gap-8 sm:gap-10 lg:w-3/5">
 
@@ -452,7 +452,7 @@ const About = () => {
             </div>
 
             <img
-              className="absolute bottom-[-20px] right-[-50px] z-0 w-[420px] scale-105 object-contain opacity-80 blur-[13px] sm:right-[-80px] sm:w-[520px] lg:right-[-40px] lg:top-20 lg:w-[560px]"
+              className="absolute -bottom-5 -right-12.5 z-0 w-105 scale-105 object-contain opacity-80 blur-[13px] sm:-right-20 sm:w-130 lg:-right-10 lg:top-20 lg:w-140"
               src={car}
               alt="car"
             />

@@ -24,7 +24,7 @@ const Card = ({
 
         {/* Car Image */}
         <img
-          className="h-auto max-h-[200px] w-full object-contain sm:h-[200px]"
+          className="h-auto max-h-50 w-full object-contain sm:h-50"
           src={image}
           alt={name}
         />

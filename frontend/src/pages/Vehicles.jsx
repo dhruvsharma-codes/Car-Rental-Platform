@@ -83,12 +83,12 @@ const Vehicles = () => {
         >
 
           {/* Heading */}
-          <h2 className="max-w-[545px] text-center font-secondary text-[36px] font-bold leading-tight sm:text-[44px] lg:text-[50px]">
+          <h2 className="max-w-136.25 text-center font-secondary text-[36px] font-bold leading-tight sm:text-[44px] lg:text-[50px]">
             Select a vehicle group
           </h2>
 
           {/* Vehicle Filters */}
-          <div className="flex w-full max-w-[1000px] flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
+          <div className="flex w-full max-w-250 flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
 
             {/* All Vehicles */}
             <button

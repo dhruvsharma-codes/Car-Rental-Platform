@@ -52,9 +52,9 @@ const Details = () => {
               </div>
 
               {/* Main Car Image */}
-              <div className="flex min-h-[260px] items-center justify-center sm:min-h-[320px] lg:min-h-[380px]">
+              <div className="flex min-h-65 items-center justify-center sm:min-h-80 lg:min-h-95">
                 <img
-                  className="h-auto max-h-[380px] w-full object-contain"
+                  className="h-auto max-h-95 w-full object-contain"
                   src={car.image}
                   alt={car.name}
                 />
@@ -65,19 +65,19 @@ const Details = () => {
             {/* Small Images */}
             <div className="mt-5 flex w-full justify-center gap-4 sm:justify-start sm:gap-6">
               <img
-                className="h-auto w-[70px] sm:w-[90px]"
+                className="h-auto w-17.5 sm:w-22.5"
                 src={blur1}
                 alt="blur1"
               />
 
               <img
-                className="h-auto w-[70px] sm:w-[90px]"
+                className="h-auto w-17.5 sm:w-22.5"
                 src={blur2}
                 alt="blur2"
               />
 
               <img
-                className="h-auto w-[70px] sm:w-[90px]"
+                className="h-auto w-17.5 sm:w-22.5"
                 src={blur3}
                 alt="blur3"
               />
@@ -85,7 +85,7 @@ const Details = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="w-full lg:max-w-[620px]">
+          <div className="w-full lg:max-w-155">
 
             {/* Technical Specification */}
             <div className="flex flex-col gap-8 sm:gap-10">
@@ -205,7 +205,7 @@ const Details = () => {
             <div className="mt-8">
               <Link
                 to={`/booking/${car.id}`}
-                className="flex w-full max-w-[292px] items-center justify-center rounded-xl bg-[#5937E0] px-7 py-3.5 text-[16px] font-semibold text-white"
+                className="flex w-full max-w-73 items-center justify-center rounded-xl bg-[#5937E0] px-7 py-3.5 text-[16px] font-semibold text-white"
               >
                 Rent a car
               </Link>

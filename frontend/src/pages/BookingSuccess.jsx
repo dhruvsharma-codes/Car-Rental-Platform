@@ -15,7 +15,7 @@ const BookingSuccess = () => {
         <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600 sm:mb-6 sm:h-20 sm:w-20">
           <CheckCircle
             size={34}
-            className="sm:h-[42px] sm:w-[42px]"
+            className="sm:h-10.5 sm:w-10.5"
           />
         </div>
 
