@@ -15,7 +15,11 @@ app.use(helmet());
 // cors
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://car-rental-platform-uy53.vercel.app/",
+    ]
+    
   }),
 );
 
