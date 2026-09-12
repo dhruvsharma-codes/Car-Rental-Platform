@@ -48,7 +48,7 @@ const InfoBlock2 = () => {
                   {step.title}
                 </h3>
               </div>
-              <p className="text-[16px] font-normal mt-3 md:w-132 sm:w-90">
+              <p className="text-[16px] font-normal mt-3 md:w-132 sm:w-80">
                 {step.description}
               </p>
             </div>
