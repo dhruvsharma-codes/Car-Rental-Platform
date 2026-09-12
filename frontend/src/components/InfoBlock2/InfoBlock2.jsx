@@ -39,7 +39,7 @@ const InfoBlock2 = () => {
         {/* right list */}
         <div className="flex flex-col gap-7">
           {steps.map((step) => (
-            <div key={step.id} className="md:max-w-150 sm:max-w-80">
+            <div key={step.id} className="max-w-150">
               <div className="flex gap-2.5 items-center">
                 <span className="bg-[#5937E0] leading-8 h-8 w-8 text-center text-[16px] font-semibold text-white rounded-full">
                   {step.id}
@@ -48,7 +48,7 @@ const InfoBlock2 = () => {
                   {step.title}
                 </h3>
               </div>
-              <p className="text-[16px] font-normal mt-3 w-132">
+              <p className="text-[16px] font-normal mt-3 md:w-132 sm:w-90">
                 {step.description}
               </p>
             </div>
