@@ -90,12 +90,14 @@ const Hero = () => {
             <input
               type="date"
               className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none"
+              placeholder="Rental date"
             />
 
             {/* Return Date */}
             <input
               type="date"
               className="w-full rounded-md bg-gray-100 px-3 py-2 text-[16px] leading-5 outline-none"
+              placeholder="Return date"
             />
 
             {/* Button */}
