@@ -13,18 +13,22 @@ const PORT = process.env.PORT;
 app.use(helmet());
 
 // cors
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://car-rental-platform-uy53.vercel.app/",
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",
+    "https://car-rental-platform-uy53.vercel.app",
+  ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
 app.use(express.json());
+// CORS
+app.use(cors(corsOptions));
+
+// Explicit preflight handling
+app.options(/.*/, cors(corsOptions));
+
 
 // test route
 app.get("/", (req, res) => {
