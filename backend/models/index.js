@@ -57,7 +57,7 @@ db.Booking.belongsTo(db.Car, {
 
 // const startDb = async () => {
 //   try {
-//     db.sequelize.sync({ alter: true });
+//     // db.sequelize.sync({ alter: true });
 //     console.log("Database Synchronized Successfully");
 //   } catch (error) {
 //     console.log("Database Synchronized Unsuccessfully",error);

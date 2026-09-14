@@ -117,3 +117,13 @@ Email booking confirmation
 Cloudinary image uploads
 Advanced search and filtering
 Production deployment
+
+
+
+// "production": {
+  //   "username": "root",
+  //   "password": null,
+  //   "database": "car_rental",
+  //   "host": "127.0.0.1",
+  //   "dialect": "mysql"
+  // }
