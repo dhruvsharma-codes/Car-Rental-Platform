@@ -6,7 +6,6 @@ const {
   createPaymentIntent,
   confirmBookingPayment,
 } = require("../controllers/bookingController");
-
 /*
 |--------------------------------------------------------------------------
 | Create PaymentIntent

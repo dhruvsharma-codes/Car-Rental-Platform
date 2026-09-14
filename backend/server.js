@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-// const authRoutes = require("./routes/authRoutes.js");
 const bookingRoutes = require("./routes/bookingRoutes");
 const app = express();
 
@@ -38,7 +37,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// app.use("/api/auth", authRoutes);
 app.use("/api/bookings", bookingRoutes);
 
 const startServer = () => {

@@ -143,9 +143,7 @@ const createPaymentIntent = async (req, res) => {
 
       currency: "usd",
 
-      automatic_payment_methods: {
-        enabled: true,
-      },
+      automatic_payment_methods: { enabled: true },
 
       receipt_email: customerEmail,
 
@@ -165,6 +163,11 @@ const createPaymentIntent = async (req, res) => {
     await booking.update({
       stripePaymentIntentId: paymentIntent.id,
     });
+
+    // enabled: (true,
+    //   await booking.update({
+    //     stripePaymentIntentId: paymentIntent.id,
+    //   }));
 
     /*
     |--------------------------------------------------------------------------
@@ -322,7 +325,7 @@ const confirmBookingPayment = async (req, res) => {
     }
 
     const paymentIntent = await stripe.paymentIntents.retrieve(
-      booking.stripePaymentIntentId
+      booking.stripePaymentIntentId,
     );
 
     if (paymentIntent.status !== "succeeded") {
@@ -370,10 +373,7 @@ const confirmBookingPayment = async (req, res) => {
         totalAmount: booking.totalAmount,
       });
     } catch (emailError) {
-      console.error(
-        "Booking confirmed, but email failed:",
-        emailError
-      );
+      console.error("Booking confirmed, but email failed:", emailError);
     }
 
     return res.status(200).json({
@@ -381,7 +381,6 @@ const confirmBookingPayment = async (req, res) => {
       message: "Payment successful and booking confirmed",
       booking,
     });
-
   } catch (error) {
     console.error("Confirm booking error:", error);
 

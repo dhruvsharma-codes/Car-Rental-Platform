@@ -54,8 +54,14 @@ const BookingForm = ({
   // =========================
 
   const createPaymentIntent = async () => {
+      console.log("🔥 API URL:", import.meta.env.VITE_API_URL);
+
+      const url = `${import.meta.env.VITE_API_URL}/api/bookings/create-payment-intent`;
+        console.log("🔥 FINAL URL:", url);
+
+
     const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/bookings/create-payment-intent`,
+url,
       {
         method: "POST",
 
@@ -83,7 +89,11 @@ const BookingForm = ({
       },
     );
 
+    console.log("🔥 RESPONSE STATUS:", response.status);
     const data = await response.json();
+      console.log("🔥 RESPONSE DATA:", data);
+
+
 
     if (!response.ok) {
       throw new Error(data.message || "Unable to create payment.");
