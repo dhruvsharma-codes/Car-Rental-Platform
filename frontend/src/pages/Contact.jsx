@@ -1,4 +1,3 @@
-
 import { Clock, LocationEdit, Mail, Phone } from "lucide-react";
 
 import contactCar from "../assets/contactcar.png";
@@ -75,7 +74,6 @@ const Contact = () => {
   return (
     <section className="w-full">
       <div className="mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-
         {/* ================= PAGE TITLE ================= */}
         <div className="flex min-h-55 w-full items-center justify-center py-10 sm:min-h-60 lg:min-h-60">
           <div className="flex flex-col gap-3 sm:gap-4">
@@ -92,7 +90,6 @@ const Contact = () => {
 
         {/* ================= BOOKING FORM ================= */}
         <div className="flex flex-col items-center justify-between gap-10 py-10 sm:py-12 lg:flex-row lg:gap-8 lg:py-15">
-
           {/* Form */}
           <div className="relative z-30 w-full max-w-[384px] rounded-[20px] bg-[#5937E0] p-5 sm:p-6 lg:shrink-0">
             <h2 className="mb-4 text-center text-[24px] font-semibold text-white sm:text-[28px]">
@@ -100,7 +97,6 @@ const Contact = () => {
             </h2>
 
             <form className="mt-6 flex w-full flex-col gap-5 sm:mt-8 sm:gap-6">
-
               {/* Car type */}
               <select
                 value={carType}
@@ -169,7 +165,6 @@ const Contact = () => {
 
         {/* ================= CONTACT INFORMATION ================= */}
         <div className="grid grid-cols-1 gap-8 py-10 text-start sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-6 lg:py-15">
-
           {/* Address */}
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF9E0C] text-center text-white">
